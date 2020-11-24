@@ -1,0 +1,42 @@
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  margin: 0;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+#app {
+  height: 100%;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+.app-container {
+  padding: 20px;
+}
+*{
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    background: rgba(0,0,0,0.2);
+  }
+  &::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    background:transparent;
+  }
+}

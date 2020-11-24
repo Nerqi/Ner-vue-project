@@ -1,0 +1,59 @@
+{
+  "name": "vue-project",
+  "version": "1.0.0",
+  "author": "wangtq<wangtq@asiainfo.com>",
+  "private": false,
+  "scripts": {
+    "dev": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "webpack-dev": "vue-cli-service serve --open --mode development",
+    "webpack-build": "vue-cli-service build --mode production",
+    "dll": "webpack --config build/webpack.dll.js",
+    "lint": "eslint --ext .js,.vue src"
+  },
+  "dependencies": {
+    "axios": "0.18.1",
+    "core-js": "3.6.5",
+    "echarts": "^4.1.0",
+    "element-ui": "2.13.2",
+    "qs": "^6.9.4",
+    "js-cookie": "2.2.0",
+    "vue": "2.6.10",
+    "vue-pdf": "^4.1.0",
+    "vue-router": "3.0.6",
+    "vuex": "3.1.0",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "4.4.4",
+    "@vue/cli-plugin-eslint": "4.4.4",
+    "@vue/cli-plugin-unit-jest": "4.4.4",
+    "@vue/cli-service": "4.4.4",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-eslint": "10.1.0",
+    "eslint": "6.7.2",
+    "eslint-plugin-vue": "6.2.2",
+    "html-webpack-plugin": "3.2.0",
+    "mockjs": "1.0.1-beta3",
+    "css-loader": "^3.6.0",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "style-loader": "^1.2.1",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@vue/babel-preset-app": "^4.4.6",
+    "babel-loader": "^8.0.6",
+    "vue-template-compiler": "2.6.10",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "engines": {
+    "node": ">=8.9",
+    "npm": ">= 3.0.0"
+  },
+  "license": "MIT"
+}
