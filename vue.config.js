@@ -24,6 +24,7 @@ module.exports  = {
     after: require('./mock/mock-server.js') // 有接口走服务，无接口走mock
   },
   configureWebpack: config =>{
+    config.devtool = 'source-map';
     config.performance = {
       hints: 'warning',
       maxEntrypointSize: 50000000,

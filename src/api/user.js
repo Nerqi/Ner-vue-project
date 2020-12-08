@@ -13,11 +13,11 @@ export function login(data) {
   })
 }
 export function getInfo(token) {
-  // return request({
-  //   url: `${prefix}/user/info`,
-  //   method: 'get',
-  //   params: { token }
-  // })
+  return request({
+    url: `${prefix}/user/info/wtq`,
+    method: 'get',
+    params: { token }
+  })
 }
 export function logout(token) {
   // return request({

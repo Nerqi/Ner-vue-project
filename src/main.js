@@ -5,6 +5,7 @@ import store from './store';
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.less'
+import '@/permission'
 Vue.use(ElementUI);
 const { mockXHR } = require('../mock');
 mockXHR(); // 启动mock，有接口走服务，无接口走mock
