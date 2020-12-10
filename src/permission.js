@@ -14,7 +14,6 @@ router.beforeEach(async(to, from, next) => {
   NProgress.start();
   //document.title = getPageTitle(to.meta.title);
   const hasToken = getToken();
-
   if (hasToken) {
     if (to.path === '/login') {
       next({ path: '/' });
@@ -27,12 +26,12 @@ router.beforeEach(async(to, from, next) => {
         try {
           const { menus } = await store.dispatch('user/getInfo');
           const accessRoutes = await store.dispatch('permission/generateRoutes', menus);
-          router.addRoutes([...accessRoutes,{ path: '*', redirect: '/404', hidden: true }]);
+          router.addRoutes(accessRoutes);
           next({ ...to, replace: true })
         } catch (error) {
           await store.dispatch('user/resetToken');
           Message.error(error || 'Has Error');
-          next(`/login?redirect=${to.path}`);
+          next('/login');
           NProgress.done()
         }
       }

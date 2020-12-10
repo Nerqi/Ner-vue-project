@@ -13,12 +13,12 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/dashboard',
     children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
+      path: '/dashboard',
+      name: 'dashboard',
       component: () => import('@/view/main/main'),
-      meta: { title: defaultSettings.title, icon: 'dashboard' },
+      meta: { title: '首页', icon: 'el-icon-star-on' }
     }]
-  },
+  }
 ];
 const createRouter = () => new Router({
   // mode: 'history',

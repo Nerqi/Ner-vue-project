@@ -14,17 +14,14 @@ function trans (data) {
   data.forEach((item,index) => {
     const oldItem = cloneDeep(item);
     item = {};
-    item.hidden = oldItem.isShow === '0';
     item.name = oldItem.menuCode || 'a'+oldItem.menuId;
     item.meta ={
       icon: oldItem.icon,
       title: oldItem.appMenuName,
       noCache: true
     };
-    if (oldItem.menuType === '0'){
+    if (oldItem.menuType === '1'){
       item.component =  'Layout';
-      item.redirect = "noredirect";
-      item.alwaysShow = true;
     } else {
       item.component = oldItem.path
     }
@@ -65,7 +62,6 @@ const actions = {
     }
     return new Promise( (resolve, reject) => {
       login(userInfo).then(response => {
-        console.dir(response);
         const { info : data } = response;
         commit('SET_TOKEN', data.token || data);
         setToken(data.token || data);
@@ -80,7 +76,6 @@ const actions = {
       getInfo(state.token).then( async response => {
         try {
           let { info : data } = response;
-          console.dir(data)
           let { name, avatar, menuList, staff_id} = data;
           const oldMenuList = cloneDeep(menuList);
           trans( menuList );

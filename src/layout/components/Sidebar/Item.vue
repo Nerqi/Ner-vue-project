@@ -12,10 +12,10 @@ export default {
       default: ''
     }
   },
+  mounted() {},
   render(h, context) {
-    const { icon, title } = context.props
-    const vnodes = []
-
+    const { icon, title } = context.props;
+    const vnodes = [];
     if (icon) {
       if (icon.includes('el-icon')) {
         vnodes.push(<i class={[icon, 'sub-el-icon']} />)
@@ -23,7 +23,6 @@ export default {
         vnodes.push(<svg-icon icon-class={icon}/>)
       }
     }
-
     if (title) {
       vnodes.push(<span slot='title'>{(title)}</span>)
     }

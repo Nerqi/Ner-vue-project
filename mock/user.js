@@ -1,43 +1,45 @@
 const menuList = [
   {
-    "menuId": 1053,
-    "appMenuName": "个人信息管理",
+    "menuId": 1,
+    "appMenuName": "系统管理",
     "menuType": "1",
-    "parentId": 1020,
-    "path": "redirectIndex",
-    "icon": "app",
-    "url": "/info",
-    "menuOrder": 10,
-    "menuCode": "myInfo",
-    "isShow": "0",
-    "status": "1",
+    "icon": "el-icon-edit",
+    "url": "/system",
+    "menuCode": "system",
     "children": [{
-      "menuId": 1054,
-      "appMenuName": "个人密码修改",
-      "menuType": "1",
-      "parentId": 1053,
-      "path": "userinfo/MyPassword",
-      "icon": "suo",
-      "url": "/Mypassword",
-      "menuOrder": 1,
-      "menuCode": "MyPassword",
-      "isShow": "1",
-      "status": "1"
-    }]
+      "menuId": 1.1,
+      "appMenuName": "用户管理",
+      "menuType": "2",
+      "parentId": 1,
+      "path": "system/userManager",
+      "icon": "el-icon-share",
+      "url": "/system/userManager",
+      "menuCode": "userManager"
+    },
+      {
+        "menuId": 1.2,
+        "appMenuName": "组织管理",
+        "menuType": "2",
+        "parentId": 1,
+        "path": "system/orgManager",
+        "icon": "el-icon-share",
+        "url": "/system/orgManager",
+        "menuCode": "orgManager"
+      }]
   },
-  {
-    "menuId": 1023,
-    "appMenuName": "系统字典",
-    "menuType": "1",
-    "parentId": 1020,
-    "path": "system/dictionary/index",
-    "icon": "database",
-    "url": "/system/dictionary",
-    "menuOrder": 7,
-    "menuCode": "Dictionary",
-    "isShow": "1",
-    "status": "1"
-  }
+  // {
+  //   "menuId": 1023,
+  //   "appMenuName": "系统字典",
+  //   "menuType": "1",
+  //   "parentId": 1020,
+  //   "path": "system/dictionary/index",
+  //   "icon": "database",
+  //   "url": "/system/dictionary",
+  //   "menuOrder": 7,
+  //   "menuCode": "Dictionary",
+  //   "isShow": "1",
+  //   "status": "1"
+  // }
 ];
 
 const tokens = {
@@ -50,7 +52,7 @@ const users = {
   avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
   name: 'admin',
   staff_id : 1,
-  menuList
+  menuList: menuList
 };
 
 module.exports = [
@@ -71,6 +73,15 @@ module.exports = [
       return {
         status: 200,
         info: users
+      }
+    }
+  },
+  {
+    url: '/fwjg/logout/wtq',
+    type: 'post',
+    response: config => {
+      return {
+        status: 200
       }
     }
   }

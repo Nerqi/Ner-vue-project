@@ -1,8 +1,5 @@
 <template>
-  <component
-    :is="type"
-    v-bind="linkProps(to)"
-  >
+  <component :is="type" v-bind="linkProps(to)">
     <slot />
   </component>
 </template>
@@ -28,6 +25,7 @@ export default {
       return 'router-link'
     }
   },
+  mounted() {},
   methods: {
     linkProps(to) {
       if (this.isExternal) {

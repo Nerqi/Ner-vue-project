@@ -38,7 +38,7 @@ export function filterAsyncRoutes(routes, roles) {
  * component 按需加载的组件，对应接口信息里的path
  */
 export const filterAsyncRouter = (routers) => {
-  routers.filter(router => {
+  return routers.filter(router => {
     if (router.component) {
       if (router.component === 'Layout') {
         router.component = Layout
@@ -50,11 +50,13 @@ export const filterAsyncRouter = (routers) => {
     if (router.children && router.children.length) {
       router.children = filterAsyncRouter(router.children)
     }
+    return true
   });
-  return routers
 };
 export const loadView = (component_path) => {
-  return (resolve) => require([`@/view/${component_path}`], resolve)
+  //  return (resolve) => require([`@/view/${view}`], resolve)
+  //  return () => import('@/view/' + view)
+  return resolve => require([`@/view/${component_path}`], resolve)
 };
 
 const state = {
@@ -66,7 +68,6 @@ const mutations = {
   SET_ROUTES: (state, routes) => {
     state.addRoutes = routes;
     state.routes = constantRoutes.concat(routes);
-    console.dir(state)
   }
 };
 

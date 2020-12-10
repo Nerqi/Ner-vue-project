@@ -20,11 +20,11 @@ export function getInfo(token) {
   })
 }
 export function logout(token) {
-  // return request({
-  //   url: `${prefix}/userController/logout`,
-  //   method: 'post',
-  //   data:{
-  //     userId:token
-  //   }
-  // })
+  return request({
+    url: `${prefix}/logout/wtq`,
+    method: 'post',
+    data:{
+      userId: token
+    }
+  })
 }
