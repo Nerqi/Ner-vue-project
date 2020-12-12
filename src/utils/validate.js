@@ -40,16 +40,10 @@ const formRules =(type,other)=>{
       validator: validateSpecialChar
     })
   }
-  if(required){
-    rules.push({required,message:'必填项'})
-  }
-  if(number){
-    rules.push({ type: 'number', message: '必须为数字值'}
-    )}
-  if(max){
-    rules.push({max, message: `不能超过${max}个字符`},)
-  }
-  if(other && other instanceof Array){
+  if (required){ rules.push({required,message:'必填项'}) }
+  if (number){ rules.push({ type: 'number', message: '必须为数字值'}) }
+  if (max){ rules.push({max, message: `不能超过${max}个字符`}) }
+  if (other && other instanceof Array){
     other.forEach(item=>{
       rules.push(item)
     })

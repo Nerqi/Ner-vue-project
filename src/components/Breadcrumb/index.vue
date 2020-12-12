@@ -2,7 +2,7 @@
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
-        <span v-if="item.redirect==='noRedirect'||index == levelList.length - 1"  class="no-redirect">{{ item.meta.title }}</span>
+        <span v-if="item.redirect === 'noRedirect'|| index === levelList.length - 1"  class="no-redirect">{{ item.meta.title }}</span>
         <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
       </el-breadcrumb-item>
     </transition-group>
@@ -13,6 +13,7 @@
 import pathToRegexp from 'path-to-regexp'
 
 export default {
+  name: 'breadcrumb',
   data() {
     return {
       levelList: null
@@ -34,7 +35,6 @@ export default {
         matched = [{ path: '/dashboard', meta: { title: '首页' }}].concat(matched)
       }
       this.levelList = matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false)
-      console.dir(this.levelList)
     },
     isDashboard(route) {
       const name = route && route.name;
@@ -45,8 +45,7 @@ export default {
     },
     pathCompile(path) {
       const { params } = this.$route;
-      var toPath = pathToRegexp.compile(path);
-      return toPath(params)
+      return pathToRegexp.compile(path)(params); // 快速填充 url 字符串的参数值, /:id/:name  => /1/admin
     },
     handleLink(item) {
       const { redirect, path } = item;

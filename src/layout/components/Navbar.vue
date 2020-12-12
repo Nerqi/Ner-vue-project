@@ -1,15 +1,13 @@
 <template>
   <div class="navbar">
-    <hamburger
+    <Hamburger
       v-if="sidebar.mode !== 'horizontal'"
       :is-active="sidebar.opened"
       class="hamburger-container"
-      @toggleClick="toggleSideBar"
-    />
-    <breadcrumb
+      @toggleClick="toggleSideBar"></Hamburger>
+    <Breadcrumb
       :style="sidebar.mode === 'horizontal' ? 'padding-left:15px' : ''"
-      class="breadcrumb-container"
-    />
+      class="breadcrumb-container"></Breadcrumb>
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -35,21 +33,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'
-// import MyTodo from '@views/AfterSale/MyTodo.vue'
 
 export default {
-  components: {
-      // MyTodo,
-    Breadcrumb,
-    Hamburger
-  },
+  components: {},
   computed: {
     ...mapGetters([
       'name',
-      'sidebar',
-      'avatar'
+      'sidebar'
     ])
   },
     data() {
@@ -58,9 +48,6 @@ export default {
         }
     },
   methods: {
-      getdataSuccess(value){
-        this.value = value.sum
-      },
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },

@@ -27,6 +27,7 @@ function trans (data) {
     }
     item.path = oldItem.url;
     item.children = oldItem.children;
+    item.redirect = oldItem.redirect;
     data[index] = item;
     oldItem.children && trans(oldItem.children)
   })

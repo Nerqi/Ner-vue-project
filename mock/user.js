@@ -6,6 +6,7 @@ const menuList = [
     "icon": "el-icon-edit",
     "url": "/system",
     "menuCode": "system",
+    "redirect": '/404',
     "children": [{
       "menuId": 1.1,
       "appMenuName": "用户管理",
@@ -25,6 +26,16 @@ const menuList = [
         "icon": "el-icon-share",
         "url": "/system/orgManager",
         "menuCode": "orgManager"
+      },
+      {
+        "menuId": 1.3,
+        "appMenuName": "配置化表单",
+        "menuType": "2",
+        "parentId": 1,
+        "path": "system/formConfig",
+        "icon": "el-icon-share",
+        "url": "/system/formConfig",
+        "menuCode": "formConfig"
       }]
   },
   // {
@@ -59,7 +70,7 @@ module.exports = [
   {
     url: '/fwjg/userController/login/token',
     type: 'post',
-    response: config => {
+    response: () => {
       return {
         status: 200,
         info: tokens
@@ -69,7 +80,7 @@ module.exports = [
   {
     url: '/fwjg/user/info/wtq',
     type: 'get',
-    response: config => {
+    response: () => {
       return {
         status: 200,
         info: users
@@ -79,7 +90,7 @@ module.exports = [
   {
     url: '/fwjg/logout/wtq',
     type: 'post',
-    response: config => {
+    response: () => {
       return {
         status: 200
       }

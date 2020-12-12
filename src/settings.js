@@ -1,5 +1,5 @@
 
 module.exports = {
-  title: 'wangtq的vue前端通用框架管理平台',
-  sidebarLogo: false, // 是否显示logo
+  title: '琪的通用前端框架',
+  siderlogo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png' // siderlogo
 };

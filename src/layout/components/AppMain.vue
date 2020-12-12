@@ -17,11 +17,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less">
+  @import "~@/styles/element-variables.less";
 .app-main {
-  /*50 = navbar  */
-  min-height: calc(100vh - 50px);
-  width: 100%;
+  min-height: calc(~'100vh - 90px');
+  background-color: @appMain;
   position: relative;
   overflow: hidden;
 }

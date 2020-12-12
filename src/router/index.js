@@ -18,7 +18,12 @@ export const constantRoutes = [
       component: () => import('@/view/main/main'),
       meta: { title: '首页', icon: 'el-icon-star-on' }
     }]
-  }
+  },
+  {
+    path: '/404',
+    component: () => import('@/view/404'),
+    hidden: true
+  },
 ];
 const createRouter = () => new Router({
   // mode: 'history',

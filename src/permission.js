@@ -26,7 +26,7 @@ router.beforeEach(async(to, from, next) => {
         try {
           const { menus } = await store.dispatch('user/getInfo');
           const accessRoutes = await store.dispatch('permission/generateRoutes', menus);
-          router.addRoutes(accessRoutes);
+          router.addRoutes([...accessRoutes,{ path: '*', redirect: '/404', hidden: true }]);
           next({ ...to, replace: true })
         } catch (error) {
           await store.dispatch('user/resetToken');
