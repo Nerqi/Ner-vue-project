@@ -1,7 +1,5 @@
 <template>
-  <el-input v-bind="$attrs" v-on="evet" :placeholder="placeholder">
-    <slot slot="prefix" name="prefix"></slot>
-  </el-input>
+  <el-input v-bind="$attrs" v-on="evet" :placeholder="placeholder"></el-input>
 </template>
 <script>
 export default {

@@ -24,14 +24,10 @@ module.exports = {
     'no-undef': 'off', // 不能有未定义的变量
     'camelcase': 'off', // 强制驼峰法命名
     'semi': 'off', // 必须要有分号
-    "vue/max-attributes-per-line": ["error", { // 标签里一行可以有几个属性
-      "singleline": 10,
-      "multiline": {
-        "max": 10,
-        "allowFirstLine": false
-      }
-    }],
+    "vue/max-attributes-per-line": 'off',
     'vue/singleline-html-element-content-newline': 'off', // 在单行元素的内容前后需要换行符
-    'vue/html-self-closing': 'off' // 标签自闭和
+    'vue/html-self-closing': 'off', // 标签自闭和
+    'attributes-order': 'off',
+    'order-in-components': 'off',
   }
 };
