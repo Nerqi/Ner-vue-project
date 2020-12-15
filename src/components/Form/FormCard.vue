@@ -58,10 +58,22 @@
       component: 'Input',
       props: {}
     },
+    SelectDefault: {
+      component: 'SelectDefault',
+      props: {}
+    },
+    DictSelect: {
+      component: 'DictSelect',
+      props: {}
+    },
     Label: {
       component: 'render-content',
       props: {}
-    }
+    },
+    BaseEditor: {
+      component: 'BaseEditor',
+      props: {}
+    },
   };
 
   export default {

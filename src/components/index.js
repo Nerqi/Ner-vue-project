@@ -7,7 +7,6 @@ const commonComponent = {
     requireComonent.keys().forEach((item) => {
       let config = requireComonent(item);
       let componentName = changeStr(config.default.name);
-      console.dir(componentName)
       Vue.component(componentName, config.default || config);
     });
   }
