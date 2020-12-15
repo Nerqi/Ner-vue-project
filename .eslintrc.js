@@ -29,5 +29,6 @@ module.exports = {
     'vue/html-self-closing': 'off', // 标签自闭和
     'attributes-order': 'off',
     'order-in-components': 'off',
+    'html-closing-bracket-newline': 'off',
   }
 };

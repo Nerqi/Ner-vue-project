@@ -15,7 +15,7 @@
       }
     },
     watch: {
-      value(newValue, oldValue) {
+      value() {
         this.$refs['Editor'].setContent(this.value)
       }
     },

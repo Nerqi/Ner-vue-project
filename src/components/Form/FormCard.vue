@@ -1,10 +1,6 @@
 <template>
   <el-form ref="form" class="form_body--card" style="position: relative"
            v-bind="computedConfig" :rules="rules" :model="data" v-if="reload">
-    <!--    <div v-if="readOnly" class="mask"></div>-->
-    <!--    <div v-if="readOnly" style="text-align: right;padding: 10px">-->
-    <!--      <el-tag type="danger">只读</el-tag>-->
-    <!--    </div>-->
     <el-row>
       <el-col v-for="(item, index) in computedItems" v-if="showComponent[item.prop]" :key="getItemKey(item, index)"
               :md="item.md" :sm="item.sm" :span="item.span || 12">

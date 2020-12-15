@@ -42,7 +42,11 @@
         ]
       }
     },
-    watch: {},
+    watch: {
+      'form.select': (val) => {
+        console.dir(val)
+      }
+    },
     methods: {}
   }
 </script>

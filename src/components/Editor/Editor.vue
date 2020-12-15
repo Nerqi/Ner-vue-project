@@ -46,7 +46,7 @@
 
 <style lang="less">
   .wangEdit{
-    .w-e-toolbar {
+    .w-e-toolbar{
       line-height: 10px!important;
       display: -ms-flexbox;
       display: flex;
@@ -56,7 +56,7 @@
         z-index: 0 !important;
       }
     }
-    .w-e-text-container {
+    .w-e-text-container{
       z-index: 0 !important;
       height: 200px !important;
       position: relative;
