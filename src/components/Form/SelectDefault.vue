@@ -1,5 +1,5 @@
 <template>
-  <el-select v-bind="$attrs" v-on="evet" :placeholder="placeholder" :defaultProps="defaultProps">
+  <el-select v-bind="$attrs" v-on="evet" :placeholder="placeholder" :defaultProps="defaultProps" @change="change">
     <el-option v-for="item in list" :key="item.value" :label="item.label" :value="item.value"></el-option>
   </el-select>
 </template>
@@ -35,6 +35,12 @@ export default {
       return this.$listeners;
     },
   },
+  methods: {
+    change(value) {
+      this.$emit('wtq1', 'wtq1');
+      this.$emit('wtq2', 'wtq2');
+    }
+  }
 }
 </script>
 

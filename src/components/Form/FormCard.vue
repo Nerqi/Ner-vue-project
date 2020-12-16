@@ -3,7 +3,7 @@
            v-bind="computedConfig" :rules="rules" :model="data" v-if="reload">
     <el-row>
       <el-col v-for="(item, index) in computedItems" v-if="showComponent[item.prop]" :key="getItemKey(item, index)"
-              :md="item.md" :sm="item.sm" :span="item.span || 12">
+              :md="item.md" :sm="item.sm" :offset="item.offset" :span="item.span || 12">
         <div v-if="item.type === 'group'" class="form-group__header">{{ item.label }}</div>
         <el-form-item v-else :label="item.label + ' : '" :prop="item.prop">
           <render-content v-if="item.labelRender" slot="label" :render="item.labelRender" :data="item"/>
@@ -62,6 +62,14 @@
       component: 'DictSelect',
       props: {}
     },
+    SelectService: {
+      component: 'SelectService',
+      props: {}
+    },
+    SelectTreeService: {
+      component: 'SelectTreeService',
+      props: {}
+    },
     Label: {
       component: 'render-content',
       props: {}
@@ -93,7 +101,7 @@
           }
         }
       },
-      formItems: Array,// 表单详情（字段，名称，prop, 组件类型，布局, rules{}, props:{disabled,placeholder}，url等）
+      formItems: Array,// 表单详情（字段，名称，prop, 组件类型，布局, rules{}, props:{disabled,placeholder}，url,listeners(监听子组件的事件)等）
       // group: Array,
       data: Object, // 绑定的表单总属性
       readOnly:{ // 是否只读
