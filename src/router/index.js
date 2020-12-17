@@ -20,6 +20,12 @@ export const constantRoutes = [
     }]
   },
   {
+    path: '/bigScreen',
+    name: 'bigScreen',
+    component: () => import('@/view/report/bigScreen'),
+    hidden: true
+  },
+  {
     path: '/404',
     component: () => import('@/view/404'),
     hidden: true

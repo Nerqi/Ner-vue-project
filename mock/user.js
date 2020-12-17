@@ -38,19 +38,27 @@ const menuList = [
         "menuCode": "formConfig"
       }]
   },
-  // {
-  //   "menuId": 1023,
-  //   "appMenuName": "系统字典",
-  //   "menuType": "1",
-  //   "parentId": 1020,
-  //   "path": "system/dictionary/index",
-  //   "icon": "database",
-  //   "url": "/system/dictionary",
-  //   "menuOrder": 7,
-  //   "menuCode": "Dictionary",
-  //   "isShow": "1",
-  //   "status": "1"
-  // }
+  {
+    "menuId": 2,
+    "appMenuName": "报表管理",
+    "menuType": "1",
+    "icon": "el-icon-edit",
+    "url": "/report",
+    "menuCode": "report",
+    "redirect": '/404',
+    "children": [
+      {
+        "menuId": 2.1,
+        "appMenuName": "数据大屏",
+        "menuType": "2",
+        "parentId": 1,
+        "path": "report/screen",
+        "icon": "el-icon-star-on",
+        "url": "/report/screen",
+        "menuCode": "Screen"
+      }
+    ]
+  }
 ];
 
 const tokens = {
