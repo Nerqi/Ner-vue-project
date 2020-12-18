@@ -1,24 +1,19 @@
 <template>
   <div class="preview-screen_body">
     <div class="bg--zgc">
-      <DataScreen :width="6720" :height="3780" :background-image="backgroundImage">王天琪</DataScreen>
+      <DataScreen></DataScreen>
     </div>
   </div>
 </template>
 
 <script>
-  import backgroundImage from '@/assets/screen_images/bg@3.png'
   export default {
     name: 'bigScreen',
     components:{},
     data() {
       return {}
     },
-    computed: {
-      backgroundImage() {
-        return backgroundImage
-      }
-    },
+    computed: {},
     watch: {},
     methods: {}
   }

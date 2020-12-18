@@ -1,7 +1,7 @@
 <template>
   <div>
     <PageCard header="数据大屏">
-      <el-button @click="goto(item)">跳转到大屏</el-button>
+      <el-button @click="goto()">跳转到大屏</el-button>
     </PageCard>
   </div>
 </template>
@@ -14,6 +14,7 @@
       return {}
     },
     watch: {},
+    mounted() {},
     methods: {
       goto() {
         this.$router.push({name:'bigScreen'})

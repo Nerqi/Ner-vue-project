@@ -1,14 +1,12 @@
 <template>
   <div class="sugar-root" ref="echartsWrapper">
     <div class="popMenu-wrapper">
-      <div class="dashboard-share-container reportOrDashBackColor" style="background-color: #eeeeee; overflow: hidden;">
-        <div class="dashboard-share-background-image reportOrDashBackImg" :style="`background: ${dashboardBackgroundStyle} ${marginLeft}px top / ${100*boxWidthPercent}% 100%`"></div>
+      <div class="dashboard-share-container" style="background-color: #eeeeee; overflow: hidden;">
+        <div class="dashboard-share-background-image" :style="`background: ${dashboardBackgroundStyle} ${marginLeft}px  / ${100*boxWidthPercent}% 100%`"></div>
         <div :style="`margin: 0  ${marginLeft}px`">
-          <div style="position: relative">
-            <div class="dashboard-container can-cancel-chart-target" :style="`width: ${width}px; height:${height}px; transform: scale(${scale}, ${scale}); ${backgroundImage?'':'box-shadow:none'}`">
-              <div class="dashboard-background-image can-cancel-chart-target" :style="`background: ${dashboardBackgroundStyle} 0% 0% / 100% 100%;`"></div>
-              <slot />
-            </div>
+          <div class="dashboard-container" :style="`width: ${width}px; height: ${height}px; transform: scale( ${scale}, ${scale})`">
+            <div class="dashboard-background-image" :style="`background: ${dashboardBackgroundStyle} 0% 0% / 100% 100%;`"></div>
+            <slot />
           </div>
         </div>
       </div>
@@ -17,8 +15,7 @@
 </template>
 
 <script>
-  import {debounce} from './utils'
-
+  import backgroundImage from '@/assets/screen_images/bg@3.png'
   export default {
     name: "DataScreen",
     components:{},
@@ -30,59 +27,51 @@
       height: {
         type: Number,
         default: 1080
-      },
-      backgroundImage: {
-        type: String,
-        default: ''
       }
     },
     data() {
       return {
         $_sidebarElm: null,
-        sugarRootWidth: 0,
-        sugarRootHeight: 0,
+        clientWidth: 0,
+        clientHeight: 0,
       }
     },
     computed: {
+      // 预设宽高比
       lengthWidthRatio(){
-        return  this.width/this.height
+        return  this.width / this.height
       },
+      // ( 可见宽度 - （可见高度 * 预设宽高比） / 2 )
       marginLeft() {
-        let res = (this.sugarRootWidth - this.sugarRootHeight * this.lengthWidthRatio) / 2;
-        return res > 0 ? res:0
+        let res = (this.clientWidth - this.clientHeight * this.lengthWidthRatio) / 2;
+        return res > 0 ? res : 0
       },
+      // 可见高度 * 预设宽高比 / 可见宽度
       boxWidthPercent() {
-        return this.sugarRootHeight * this.lengthWidthRatio/this.sugarRootWidth
+        return this.clientHeight * this.lengthWidthRatio / this.clientWidth
       },
+      // 放大缩小的比例，可见高度/预设高度
       scale() {
-        return this.sugarRootHeight/this.height
+        return this.clientHeight / this.height
       },
+      // 获取大屏背景图
       dashboardBackgroundStyle(){
-        return  `url('${this.backgroundImage}')`
+        return  `url('${backgroundImage}')`
       }
     },
     mounted() {
-      this.sugarRootHeight = this.$refs.echartsWrapper.clientHeight;
-      this.sugarRootWidth = this.$refs.echartsWrapper.clientWidth;
-      // this.__resizeHandler = debounce(() => {
-      //   this.sugarRootHeight = this.$refs.echartsWrapper.clientHeight;
-      //   this.sugarRootWidth = this.$refs.echartsWrapper.clientWidth
-      // }, 100);
-      // window.addEventListener('resize', this.__resizeHandler);
-      this.$_sidebarElm = document.getElementsByClassName('sidebar-container')[0];
-      this.$_sidebarElm && this.$_sidebarElm.addEventListener('transitionend', this.$_sidebarResizeHandler)
+      this.clientHeight = this.$refs.echartsWrapper.clientHeight; // 网页可见区域高
+      this.clientWidth = this.$refs.echartsWrapper.clientWidth; // 网页可见区域宽
+      this.__resizeHandler = this.$publicFunc.debounce(() => {
+        this.clientHeight = this.$refs.echartsWrapper.clientHeight;
+        this.clientWidth = this.$refs.echartsWrapper.clientWidth
+      }, 1000);
+      window.addEventListener('resize', this.__resizeHandler);
     },
     beforeDestroy() {
-     // window.removeEventListener('resize', this.__resizeHandler);
-      this.$_sidebarElm && this.$_sidebarElm.removeEventListener('transitionend', this.$_sidebarResizeHandler)
+      window.removeEventListener('resize', this.__resizeHandler);
     },
-    methods: {
-      $_sidebarResizeHandler(e) {
-        if (e.propertyName === 'width') {
-          this.__resizeHandler()
-        }
-      }
-    }
+    methods: {}
   }
 </script>
 
@@ -90,11 +79,9 @@
   .sugar-root{
     height: 100%;
     width: 100%;
-    position: relative;
     .popMenu-wrapper{
       height: 100%;
       width: 100%;
-      position: relative;
       .dashboard-share-container {
         position: absolute;
         top: 0;
@@ -102,28 +89,23 @@
         right: 0;
         bottom: 0;
         .dashboard-share-background-image{
-          filter: blur(0px);
+          filter: blur(0px); // 清晰度（越大越不清晰）
           width: 100%;
           height: 100%;
           position: absolute;
-          opacity: 1;
+          opacity: 1; // 透明度（1完全不透明）
         }
         .dashboard-container {
-          position: relative;
-          user-select: none;
+          user-select: none; // 文本不能被选择
           width: 100%;
           height: 100%;
-          transform-origin: 0 0;
-          box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
-          transition: all .3s linear;
-          overflow: hidden;
+          transform-origin: 0 0; // 基点位置（左上角）
+          transition: all 0.3s 0s linear; // all所有的css属性都拥有过渡，过渡时间为0.3s，延迟0s触发动画，执行匀速触发函数
           .dashboard-background-image {
             width: 100%;
             height: 100%;
-            position: absolute;
-            z-index: -1;
-            filter: blur(0px);
-            opacity: 1;
+            filter: blur(0px); // 清晰度（越大越不清晰）
+            opacity: 1; // 透明度（1完全不透明）
           }
         }
       }
