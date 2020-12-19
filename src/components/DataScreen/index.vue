@@ -65,7 +65,7 @@
       this.__resizeHandler = this.$publicFunc.debounce(() => {
         this.clientHeight = this.$refs.echartsWrapper.clientHeight;
         this.clientWidth = this.$refs.echartsWrapper.clientWidth
-      }, 1000);
+      }, 100);
       window.addEventListener('resize', this.__resizeHandler);
     },
     beforeDestroy() {
@@ -79,9 +79,11 @@
   .sugar-root{
     height: 100%;
     width: 100%;
+    position: relative;
     .popMenu-wrapper{
       height: 100%;
       width: 100%;
+      position: relative;
       .dashboard-share-container {
         position: absolute;
         top: 0;
@@ -96,12 +98,14 @@
           opacity: 1; // 透明度（1完全不透明）
         }
         .dashboard-container {
+          position: relative;
           user-select: none; // 文本不能被选择
           width: 100%;
           height: 100%;
           transform-origin: 0 0; // 基点位置（左上角）
           transition: all 0.3s 0s linear; // all所有的css属性都拥有过渡，过渡时间为0.3s，延迟0s触发动画，执行匀速触发函数
           .dashboard-background-image {
+            position: absolute;
             width: 100%;
             height: 100%;
             filter: blur(0px); // 清晰度（越大越不清晰）

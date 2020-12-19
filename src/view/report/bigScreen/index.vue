@@ -1,15 +1,18 @@
 <template>
   <div class="preview-screen_body">
     <div class="bg--zgc">
-      <DataScreen></DataScreen>
+      <DataScreen>
+        <BigScreenContent></BigScreenContent>
+      </DataScreen>
     </div>
   </div>
 </template>
 
 <script>
+  import BigScreenContent from "./bigScreenContent";
   export default {
     name: 'bigScreen',
-    components:{},
+    components:{BigScreenContent},
     data() {
       return {}
     },
