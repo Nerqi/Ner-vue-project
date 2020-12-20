@@ -7,26 +7,27 @@ const menuList = [
     "url": "/system",
     "menuCode": "system",
     "redirect": '/404',
-    "children": [{
-      "menuId": 1.1,
-      "appMenuName": "用户管理",
-      "menuType": "2",
-      "parentId": 1,
-      "path": "system/userManager",
-      "icon": "el-icon-share",
-      "url": "/system/userManager",
-      "menuCode": "userManager"
-    },
-      {
-        "menuId": 1.2,
-        "appMenuName": "组织管理",
-        "menuType": "2",
-        "parentId": 1,
-        "path": "system/orgManager",
-        "icon": "el-icon-share",
-        "url": "/system/orgManager",
-        "menuCode": "orgManager"
-      },
+    "children": [
+    //   {
+    //   "menuId": 1.1,
+    //   "appMenuName": "用户管理",
+    //   "menuType": "2",
+    //   "parentId": 1,
+    //   "path": "system/userManager",
+    //   "icon": "el-icon-share",
+    //   "url": "/system/userManager",
+    //   "menuCode": "userManager"
+    // },
+    //   {
+    //     "menuId": 1.2,
+    //     "appMenuName": "组织管理",
+    //     "menuType": "2",
+    //     "parentId": 1,
+    //     "path": "system/orgManager",
+    //     "icon": "el-icon-share",
+    //     "url": "/system/orgManager",
+    //     "menuCode": "orgManager"
+    //   },
       {
         "menuId": 1.3,
         "appMenuName": "配置化表单",
