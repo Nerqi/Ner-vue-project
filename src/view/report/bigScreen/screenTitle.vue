@@ -43,7 +43,6 @@
       // clearInterval(this.timeInterval)
     },
     mounted(){
-      console.dir(111111111)
     },
     methods: {
       // refreshTime () {

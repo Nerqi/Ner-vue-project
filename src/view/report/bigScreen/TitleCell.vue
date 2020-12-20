@@ -30,6 +30,8 @@
   .title-card__body{
     display: flex;
     align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
     span{
       color: #FFFFFF;
       font-size: 20px;
