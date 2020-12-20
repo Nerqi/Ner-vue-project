@@ -30,7 +30,7 @@
     computed: {
       tanchuangstyle() {
         return {
-          left: this.tmp_area.x + 20 + 'px',
+          left: this.tmp_area.x + 40 + 'px',
           top: this.tmp_area.y + 20 + 'px',
         }
       }
